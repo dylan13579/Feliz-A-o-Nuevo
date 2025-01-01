@@ -10,17 +10,29 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #282c34;
             color: white;
             font-family: 'Arial', sans-serif;
             text-align: center;
+            overflow: hidden;
+            background-image: url('2d92cc6048a1194280e176473cf53cad-enhanced.png');
+            background-size: cover;
+            background-position: center;
         }
+
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInUp 1s forwards;
+            animation-delay: 0.5s;
         }
         p {
             font-size: 1.5em;
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: fadeInUp 1s forwards;
+            animation-delay: 1s;
         }
         button {
             padding: 10px 20px;
@@ -30,9 +42,27 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 1s forwards;
+            animation-delay: 1.5s;
         }
         button:hover {
             background-color: #21a1f1;
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -42,12 +72,14 @@
         <h1>¡Feliz Año Nuevo!</h1>
         <p>Que este nuevo año te traiga alegría, amor y muchas bendiciones.</p>
         <button onclick="showMessage()">¡Brindemos por nuevos comienzos!</button>
-        <p id="message" style="display:none; margin-top: 20px;">🥂🌟 ¡A disfrutar y celebrar! 🎉✨</p>
+        <p id="message">🥂🌟 ¡A disfrutar y celebrar! 🎉✨</p>
     </div>
 
     <script>
         function showMessage() {
-            document.getElementById('message').style.display = 'block';
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+            message.style.animation = 'fadeInUp 1s forwards';
         }
     </script>
 
